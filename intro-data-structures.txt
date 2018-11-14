@@ -1,0 +1,29 @@
+Answers:
+
+1. A line of people at an amusement park ride.
+
+a) var lineOfPeople = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+
+b) lineOfPeople.push("Mary");
+
+c/d) function findPerson(person) {
+  for (var i=0; i < lineOfPeople.length; i++){
+    if (lineOfPeople[i] === person) {
+      return lineOfPeople[i];
+    }
+  }
+  return "Person not in line";
+}
+
+e) lineOfPeople.splice(1, 0, "Melissa");
+
+f) lineOfPeople.splice(4, 1);
+
+
+2. Provide another real-world example that you can model using a data structure.
+
+A: Steps on an assembly line in a factory
+
+3. How would your data structure allow developers to access and manipulate the data?
+
+A: Developers would be able to manipulate the steps of the assembly line and where they occur on the assembly line. They could also insert new steps to improve quality of product or remove steps to increase process efficiency.
