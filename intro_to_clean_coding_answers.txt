@@ -1,0 +1,154 @@
+Answers:
+
+1. In your own words, explain what clean code is and why it is important.
+
+A: Clean code is code that as easily read and interpreted by another developer. This also means it is easily maintained because it is the simplest code available to solve a problem.
+
+2. Read this article about Toyota and their use of bad code. Although you may not yet understand all of the topics discussed, think about another commonly used object that relies on computers and explain what would happen if the code was not created to an acceptable standard.
+
+A: A commonly used product that relies on computers is a smart tv. If not created with an acceptable standard, it would be unusable. It would not properly respond to commands from a remote control and would even be unable to access all of its features (i.e. streaming services and tv channels).
+
+3. Would you consider the following to be clean code? Explain why or why not. If not, refactor the code.
+
+A: This would not be considered clean code. The programmer did not utilize standard naming techniques for functions or variables. The programmer also over-commented his code.
+Refactor:
+
+FUNCTION convertTemp(unconvertedTemp, scale)
+
+  IF scale = "F" THEN
+
+  SET convertedTemp to (unconvertedTemp-32) * (5/9)
+
+  PRINT convertedTemp
+
+  ELSE IF scale = "C" THEN
+
+  SET convertedTemp to unconvertedTemp * 1.8000 + 32.00
+
+  PRINT convertedTemp
+
+  END IF
+
+END FUNCTION
+
+4. Would you consider the following to be clean code? Explain why or why not. If not, refactor the code.
+
+A: I would consider this code to be mostly clean. The only problem with it is the naming of the function "calcPercent" might make it harder to interpret for another programmer. I would consider renaming it to the full word - "calculatePercent".
+
+5. Using pseudocode, refactor the code for the following examples using the principles you have learned in this checkpoint.
+
+a. The following function prints the subtotal of a customer's transaction and receives payment accordingly.
+
+A: 
+
+FUNCTION checkOutCustomer(subTotal, discountRate, paymentType)
+
+  SET totalPrice to subTotal * discountRate + (subTotal * tax)
+
+  PRINT "Your total due is: " + totalPrice
+
+  IF paymentType = 'CASH' THEN
+
+    CALL getPayment RETURNING amount
+
+    SET amountOfChange to amount - totalPrice
+
+    PRINT "Change due: " + amountOfChange
+
+  ELSE IF paymentType = 'CREDIT CARD' THEN
+
+    CALL getPayment RETURNING amount
+
+    PRINT "Your credit card has been charged: " + totalPrice
+
+  END IF
+
+END FUNCTION
+
+b. The following function checks out a book if there are no issues with the guest's account
+
+A: 
+
+FUNCTION checkoutBook(book, guest)
+
+  IF guest.accountActive AND NOT guest.hasOverdueBooks AND guest.outstandingFees = 0 THEN
+
+    APPEND book to guest.books
+
+    SET book.status to "Checked Out"
+
+    PRINT "Your books have been issued."
+
+  ELSE IF
+
+    PRINT "Unable to check out book."
+
+  END IF
+
+END FUNCTION
+
+c. The following class is a code snippet that should support the transactions a customer can perform at an ATM
+
+A:
+
+CLASS BankAccount
+
+  FUNCTION displayBalance
+
+    PRINT balance
+
+  END FUNCTION
+
+END CLASS
+
+CLASS ATMFunctions
+
+  FUNCTION deposit(amount)
+
+    SET balance to balance + amount
+
+  END FUNCTION
+
+  FUNCTION withdraw(amount)
+
+    IF balance >= amount THEN
+
+      SET balance to balance - amount
+
+    ELSE
+
+      PRINT "Not enough funds."
+
+    END IF
+
+  END FUNCTION
+
+  FUNCTION creditCardOffer
+
+    IF NOT(customer.hasCreditCard) THEN
+
+      CALL offerCreditCard
+
+    END IF
+
+  END FUNCTION
+
+  FUNCTION checkingAccountOffer
+
+    IF NOT(customer.hasCheckingAccount) THEN
+
+      CALL offerCheckingAccount
+
+    END IF
+
+  END FUNCTION
+
+...
+
+...
+
+...
+
+END CLASS
+
+    
