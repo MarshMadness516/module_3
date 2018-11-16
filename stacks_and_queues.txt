@@ -1,0 +1,79 @@
+1. What is the main difference between a stack and a queue?
+
+A: While both are types of data structures, the main difference between the two is a queue utilizes a first-in/first-out priority to elements in the data structure where the element at the lowest index is removed/processed first (similar to a line at a gracery store), and a stack utilizes last-in/first-out priority, meaning the element with the highest index is removed/processed first.
+
+2. What are the similarities between stacks and queues?
+
+A: Both stacks and queues are data structures used to organize data. They also process data in a specific order by ranking tasks/data and creating an order to the data in the way it is processed.
+
+3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
+
+A: For the UNDO or REDO option, I would use a stack because UDNO would then remove the most recent thing typed and REDO would return the most recent thing added to its stack via the UNDO option.
+
+PROGRAMMING QUESTIONS:
+
+1/2.
+
+class Stack {
+  
+  constructor() {
+    this.container = [];
+  }
+  
+  push(item) {
+    this.container.push(item);
+  }
+  
+  pop(queue) {
+    var removeItem = [];
+
+    for (var i = 0; i < queue.length; i++) {
+      if (i === queue.length - 1) {
+        removeItem.push(queue[i]);
+      } 
+    }
+
+    return removeItem;
+  }
+  
+  reverse(string) {
+    var stackArray = [];
+    this.container.push(string);
+    var index = (this.container.length - 1);
+    var original = this.container[index];
+    console.log(original);
+    var originalArray = original.split('');
+    for (var i=0; i < originalArray.length; i++) {
+      stackArray.push(originalArray[i]);
+    }
+    var reversedArray = [];
+    var reversed = "";
+    while (stackArray.length !== 0) {
+      var x = stackArray.length - 1;
+      var returning = stackArray[x];
+      stackArray.pop(returning);
+      reversedArray.push(returning);
+    }
+    reversed = reversedArray.join('');
+    return reversed;
+  }
+}
+
+3.
+
+class Queue {
+
+  constructor() {
+    this.container = [];
+  }
+
+  enqueue(item) {
+    this.container.push(item);
+  }
+
+  dequeue() {
+    var temp = this.container[0];
+    this.container.shift();
+    console.log(temp);
+  }
+}
