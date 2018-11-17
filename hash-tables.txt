@@ -1,0 +1,73 @@
+EXERCISES:
+
+1. What is a hash table?
+>It is a data structure organizing values in key-value pairs inside an array. Each value is associated with a unique key within that array so that every value can be located by calling its uniquely paired key.
+
+2. What is hashing?
+> It is the process by which a specific key in a key-value pair, often in string format, is converted into a unique hash code. That hash code is then converted into an index in an array by modding it with its capacity - k. This allows each key-value pair to be uniquely stored in a Hash Table.
+
+3. How does a hash table store data?
+> The hashing function converts the key into a hash code then mods it into a unique array index. If two key-value pairs result in the same index, it results in collision, which is handled internally by the programming languages Ruby and JS.
+
+4. How are hash tables and objects different?
+> Objects keys are usually symbols and numbers, whereas keys in a Hash Table can be any form of data. Also Objects are generally used to store a static number of key-value pairs of all different types, whereas Hash Tables store a dynamic number of pairs that are formatted to match each other.
+
+5. Determine whether to use a hash table of object:
+
+  * List of pets and unique names: Hash Table
+  * Name, age and birthday of best friend: Object
+  * Name, age, and location of every company in a given city: Hash Table
+  * All of the books checked out from a library by a particular individual: Hash Table
+  * The primary and secondary phone numbers for a contact: Object
+
+6. Build a system that allows a sales associate to enter a customer's name, address, and phone number into the system and look up customers using their phone numbers. Store this information in a hash table.
+
+```
+var customerDataMap = new Map();
+
+function setCustomerData(name, address, phone) {
+  var ContactInfo = {
+    "address": address,
+    "name": name
+  };
+  customerDataMap.set(phone, ContactInfo);
+}
+
+function findCustomerPhone(phone) {
+  var customer = customerDataMap.get(phone);
+  console.log(customer);
+}```
+
+7. Build a system that allows a store owner to track their store's inventory using a hash table for storage.
+
+```
+var inventoryMap = new Map();
+
+function setInventoryData(item, numberStocked) {
+  inventoryMap.set(item, numberStocked);
+}
+
+function doInventory(item) {
+  var numberStocked = inventoryMap.get(item);
+  return numberStocked;
+}```
+
+8. Build a system that allows digital copies of newspapers to be entered and searched by publisher and publication date. Use hash tables to store the necessary data.
+
+```
+var newspaperMap = new Map();
+
+function setNewspaperData(newspaperName, publisher, publicationDate, content) {
+
+  var newspaperInfo = {
+    "Name": newspaperName,
+    "Content": content
+  }
+  newspaperMap.set(publisher, newspaperInfo);
+  newspaperMap.set(publicationDate, newspaperInfo);
+}
+
+function findNewspaper(publicationInfo) {
+  var newspaper = newspaperMap.get(publicationInfo);
+  console.log(newspaper);
+}```
