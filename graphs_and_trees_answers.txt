@@ -1,0 +1,83 @@
+ANSWERS:
+
+1. What is a binary tree and what makes it unique to other trees?
+
+A: A binary tree is a data structure that is organized by insertion and each node contains up to two child nodes, referred to as left and right. When inserting new nodes, the higher value always goes to the right of the parent node while the lower value always goes to the left.
+
+2. What is a heuristic?
+
+A: Using a best guess to calculate the quickest possible solution to a problem.
+
+3. What is another problem besides the shortest-path problem that requires the use of heuristics?
+
+A: Using the scientific method to test a hypothesis.
+
+4. What is the difference between a depth-first search and a breadth-first search?
+
+A: A DFS searches going in one specific direction from parent to child node until it reaches a dead end. Then it moves backward until it can move the opposite direction. After moving the opposite direction one node, it repeats this process. A BFS searches nodes row by row starting at the root node then moving to all of its child nodes, then to all of their child nodes, and so on.
+
+5. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
+
+A: Undirected means nodes are connected without any start or end point. A-cyclic means the nodes do not form a loop, meaning there are leaf nodes with no children. Unweighted means engineers have not assigned the cost to travel from one node to another.
+
+6. What kind of graph is a binary search tree?
+
+A: Undirected, a-cyclic, unweighted
+
+PROGRAMMING QUESTIONS:
+
+1. I would write a function that takes a specific value as input, write an if statement to see if the value is larger than the root value. If yes, then perform a DFS to the right of the root value, if not then to the left of the root value.
+
+function searchNodes(node, root) {
+  let temp = root;
+  if (temp === node) {
+    return temp;
+  } else if (node < temp && temp.left) {
+    temp = temp.left;
+  } else if (node > temp && temp.right) {
+    temp = temp.right;
+  } else {
+    return "Node does not exist within the tree.";
+  }
+}
+
+
+2. First, you use a DFS to find the closest shared ancestor between the two nodes. Then you would find the distance between that ancestor and each node and add it together to return a final distance.
+
+function distanceBetweenNodes(n1, n2, root) {
+  let temp = root;
+  var ancestor;
+  if (n1 > temp && n2 > temp) {
+    temp = temp.right;
+  } else if (n1 < temp && n2 < temp) {
+    temp = temp.left;
+  } else if (n1 < temp && n2 > temp || n1 > temp && n2 < temp) {
+    ancestor = temp;
+  }
+
+  var count1 = 0;
+  var count2 = 0;
+  if (n1 > ancestor) {
+    ancestor = ancestor.right;
+    count1++;
+  } else if (n1 < ancestor) {
+    ancestor = ancestor.left;
+    count1++;
+  } else {
+    return count1;
+  }
+  
+  if (n2 > temp) {
+    temp = temp.right;
+    count2++;
+  } else if (n2 < temp) {
+    temp = temp.left;
+    count2++;
+  } else {
+    return count2;
+  }
+
+  var distance = count1 + count2;
+
+  return distance;
+}
