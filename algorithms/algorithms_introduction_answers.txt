@@ -1,0 +1,36 @@
+ANSWERS:
+
+1. Using proper pseudo-code, describe the following primitive algorithms:
+
+* Making coffee:
+
+OBTAIN coffee grounds, water, filter,
+INSERT water into reservoir
+INSERT filter into coffee maker
+INSERT coffee grounds into filter
+PLACE cup below spout
+PRESS start button
+
+* Washing dishes:
+
+OBTAIN sponge, dish soap, drying rack
+TURN ON hot water
+APPLY dish soap to sponge
+SCRUB dish with sponge
+PLACE dish in drying rack
+REPEAT UNTIL all dishes are clean
+
+* Making PB&J
+
+OBTAIN two bread slices, peanut butter, jelly
+APPLY peanut butter to bread slice one
+APPLY jelly to bread slice two
+APPLY bread slice one to bread slice two
+
+2. Name three companies who created an algorithm that made them successful.
+
+a) Facebook uses an algorithm to order posts on a news feed. This was revolutionary because it ordered posts based on what was most relevant to the user, centering around friends and family rather than spam ads.
+b) Apple uses an algorithm for its auto correct feature. This algorithm is famous because it is not only able to interpret spelling/grammatical errors, but also can learn new vocabulary based on words/abbreviations/etc. most used by the user in order to enhance its suggestions
+c) Twitter uses an algorithm to suggest new accounts for the user to follow. This allows the user to find new and relevant accounts based on what you already follow, allowing for expansion of the user's social media connections.
+
+3. The most efficient algorithm utilizes the quickest/least amount of steps in order to achieve the goal. Efficiency is key in determining the best algorithm.
